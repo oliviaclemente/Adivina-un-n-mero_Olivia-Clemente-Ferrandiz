@@ -1,33 +1,24 @@
-min=0
-max=99
-def pedir_numero(invitación, minimo, maximo):
-  invitación += "entre" + str(minimo) + "y" + str(maximo) +     ":"
-  while True:
-    entrada = input(invitación)
-    try: 
-       entrada: int(invitación)
-    except: 
-       pass
-    else:
-       if minimo <= entrada <= maximo:
-         return entrada
-minimo=maximo=0
-while True:
-  minimo = pedir_numero("Añade el minimo:")
-  maximo = pedir_numero("Añade el maximo:")
-  if minimo < maximo:
-    break
+import random
+numAleatorio = random.randint(1,99)
 
-minimo= min
-maximo= max
-num= pedir_numero("Adivine un num", min,max)
-while True:
-  inte = pedir_numero("Adivine un num", min,max)
-  if inte < num:
-     print("num muy pequeño:")
-  elif inte > num:
-     print("num muy grande:")
-  else:
-    print("Perfecto!!")
-    break
-  
+def intro():
+  print("*"*10, "Adivina el num",""*10)
+
+intro()
+def juego():
+  int= 0
+  while True:
+    num = int(input("Añade un num entre 0 y 99: "))
+    if num > numAleatorio:
+      int += 1
+      print("Demasiado grande")
+    elif num < numAleatorio:
+      int += 1 
+      print("Demasiado pequeño")
+    else:
+      int += 1
+      print(f"Ganador!!, el num aleatorio era...{numAleatorio}.")
+      input("Intro para salir")
+      break
+
+juego()
